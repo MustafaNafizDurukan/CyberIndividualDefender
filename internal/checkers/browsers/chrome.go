@@ -3,6 +3,7 @@ package chrome
 import (
 	"fmt"
 
+	"github.com/MustafaNafizDurukan/CyberIndividualDefender/pkg/chrome"
 	"github.com/MustafaNafizDurukan/CyberIndividualDefender/pkg/types"
 )
 
@@ -21,6 +22,12 @@ func (c *Checker) Descriptor() *types.Descriptor {
 }
 
 func (c *Checker) Check() error {
-	fmt.Println("Chrome checked successfully!")
+	chrome := chrome.New()
+	if err := chrome.Init(); err != nil {
+		return err
+	}
+
+	fmt.Println(chrome.ChromePasswords())
+
 	return nil
 }
