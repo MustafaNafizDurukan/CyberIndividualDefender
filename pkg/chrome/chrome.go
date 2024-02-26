@@ -50,6 +50,7 @@ func (c *Chrome) Init() error {
 
 func (c *Chrome) ChromePasswords() ([]PasswordModel, error) {
 	if dir, err := os.Stat(c.LoginDataPath); err != nil || !dir.IsDir() {
+		return nil, err
 	}
 
 	tempFile, _ := os.CreateTemp(os.Getenv("temp"), "")
